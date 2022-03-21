@@ -23,20 +23,8 @@
 </template>
 
 <script>
-import firebase from 'firebase/compat/app';
+import firebase from '../../plugins/firebase'
 import 'firebase/compat/auth';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBZZiU93YJlokFJDu_VFaQX6bk1a0SV-BU",
-  authDomain: "su-cosmetics.firebaseapp.com",
-  projectId: "su-cosmetics",
-  storageBucket: "su-cosmetics.appspot.com",
-  messagingSenderId: "965773591205",
-  appId: "1:965773591205:web:583bc95ceb43265fa3c34c",
-  measurementId: "G-W5CV9H0ZEJ"
-};
-
-firebase.initializeApp(firebaseConfig);
 export default {
     data() {
         return {
@@ -52,15 +40,15 @@ export default {
     methods: {
         onSubmit(event) {
             event.preventDefault()
-            // alert(JSON.stringify(this.form))
             const email = this.form.email
             const password = this.form.password
+            
             console.log(email, password)
              firebase.auth().signInWithEmailAndPassword(email, password).then(data => {
                 console.log(data)
                 this.$router.push('/')
             }).catch(error =>{
-                alert(error.message)
+                alert('email หรือ password ไม่ถูกต้อง')
                 console.log(error)
             })
         },
