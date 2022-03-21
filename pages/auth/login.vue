@@ -6,7 +6,7 @@
         <b-form @submit="onSubmit" @reset="onReset">
 
             <b-form-group id="input-group-1" label-for="input-1">
-                <b-form-input id="input-1" v-model="form.username" type="text" placeholder="ชื่อผู้ใช้งาน" required></b-form-input>
+                <b-form-input id="input-1" v-model="form.email" type="text" placeholder="ชื่อผู้ใช้งาน" required></b-form-input>
             </b-form-group>
 
             <b-form-group id="input-group-2" label-for="input-2">
@@ -23,13 +23,27 @@
 </template>
 
 <script>
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBZZiU93YJlokFJDu_VFaQX6bk1a0SV-BU",
+  authDomain: "su-cosmetics.firebaseapp.com",
+  projectId: "su-cosmetics",
+  storageBucket: "su-cosmetics.appspot.com",
+  messagingSenderId: "965773591205",
+  appId: "1:965773591205:web:583bc95ceb43265fa3c34c",
+  measurementId: "G-W5CV9H0ZEJ"
+};
+
+firebase.initializeApp(firebaseConfig);
 export default {
     data() {
         return {
             dialog: true,
             form: {
                 email: '',
-                name: ''
+                password: ''
 
             },
 
@@ -38,7 +52,17 @@ export default {
     methods: {
         onSubmit(event) {
             event.preventDefault()
-            alert(JSON.stringify(this.form))
+            // alert(JSON.stringify(this.form))
+            const email = this.form.email
+            const password = this.form.password
+            console.log(email, password)
+             firebase.auth().signInWithEmailAndPassword(email, password).then(data => {
+                console.log(data)
+                this.$router.push('/')
+            }).catch(error =>{
+                alert(error.message)
+                console.log(error)
+            })
         },
         onReset(event) {
             event.preventDefault()
