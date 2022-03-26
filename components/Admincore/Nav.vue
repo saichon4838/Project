@@ -12,7 +12,7 @@
                     <b-nav-item href="/admin/receipt">รายการสั่งซื้อ</b-nav-item>
                     <b-nav-item href="/admin/category">หมวดหมู่สินค้า</b-nav-item>
                     <b-nav-item href="/admin/product">สินค้า</b-nav-item>
-                    <b-nav-item href="#">รีวิว</b-nav-item>
+                    <b-nav-item href="/admin/review">รีวิว</b-nav-item>
                 </b-navbar-nav>
             </div>
             <!-- R ight aligned nav items -->
