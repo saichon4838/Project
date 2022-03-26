@@ -52,14 +52,48 @@
                 </b-card-text>
             </b-card>
         </b-card-group>
+        <pre>{{categorydata}}</pre>
     </div>
 
 </div>
 </template>
 
 <script>
+import firebase from '@/plugins/firebase'
+import { 
+    getFirestore,
+    collection,
+    getDocs,
+    getDoc,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+ } from 'firebase/firestore';
 export default {
+    data() {
+        return {
+            categorydata: {},
+        }
+    },
+    methods:{
+        async getCategory() {
+            const db = getFirestore()
+            const CategoryRef = collection(db, "Category")
+            const CategoryDoc = await getDocs(CategoryRef)
+            console.log(CategoryDoc)
+            // this.categorydata = CategoryDoc.data()
+        }
+        // async onSubmit() {
+        //     const db = getFirestore()
+        //     const querySnapshot = await getDocs(collection(db, "Category"));
+        //     console.log(querySnapshot.data())
 
+        // },
+    },
+    async created(){
+        await this.getCategory()
+    }
 }
 </script>
 
