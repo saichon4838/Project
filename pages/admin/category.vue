@@ -82,10 +82,10 @@ export default {
             const categoryTh = this.form.categoryTh
             const categoryEn = this.form.categoryEn
             const value = { categoryTh, categoryEn}
-
+            // console.log(this.form)
 
             const db = getFirestore()
-            const CategoryRef = collection(db, "Categories")
+            const CategoryRef = collection(db, "Category")
             addDoc(CategoryRef, value)
 
         },

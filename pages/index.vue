@@ -81,7 +81,17 @@ export default {
             const db = getFirestore()
             const CategoryRef = collection(db, "Category")
             const CategoryDoc = await getDocs(CategoryRef)
-            console.log(CategoryDoc)
+            
+            this.categorydata = CategoryDoc.docs.map((doc) => ({
+                id:doc?.id,
+                categoryTh:doc?.data().categoryTh,
+                categoryEn:doc?.data().categoryEn
+            }))
+            // console.log(CategoryDoc.docs.map((doc) => ({
+            //     id:doc?.id,
+            //     categoryTh:doc?.data().categoryTh,
+            //     categoryEn:doc?.data().categoryEn
+            // })))
             // this.categorydata = CategoryDoc.data()
         }
         // async onSubmit() {
