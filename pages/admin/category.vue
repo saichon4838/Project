@@ -22,10 +22,10 @@
                             <b-col sm="6">
                                 <b-form-input id="input-small-2" v-model="form.categoryEn" size="sm" placeholder="Enter your name"></b-form-input>
                             </b-col>
-                            <b-dropdown style="color:#000 " variant="light" id="dropdown-1" text="สถานะหมวดหมู่" class="m-md-2">
-                                <b-dropdown-item>แสดง</b-dropdown-item>
-                                <b-dropdown-item>ไม่แสดง</b-dropdown-item>
-                            </b-dropdown>
+                            <b-select v-model="form.status" style="color:#000 " variant="light" id="dropdown-1" text="สถานะหมวดหมู่" class="m-md-2">
+                                <b-select-option value="แสดง">แสดง</b-select-option>
+                                <b-select-option value="ไม่แสดง">ไม่แสดง</b-select-option>
+                            </b-select>
                         </b-row>
                         <template #modal-footer="{cancel,ok}">
                             <!-- Emulate built in modal footer ok and cancel button actions -->
@@ -69,8 +69,8 @@ export default {
             dialog: true,
             form: {
                 categoryTh: '',
-                categoryEn: ''
-
+                categoryEn: '',
+                status:''
             },
 
         }
@@ -78,11 +78,7 @@ export default {
     methods: {
         onSubmit(event) {
             event.preventDefault()
-
-            const categoryTh = this.form.categoryTh
-            const categoryEn = this.form.categoryEn
-            const value = { categoryTh, categoryEn}
-            // console.log(this.form)
+            const value = { ...this.form}
 
             const db = getFirestore()
             const CategoryRef = collection(db, "Category")
