@@ -3,30 +3,32 @@
 
     <div>
         <b-card align="center" class="font2 " header="สกินแคร์">
-            <b-card title="Liplover No.01" img-src="/Product01.png" img-alt="Image" img-top tag="article" style="max-width: 20rem;" class=" font1 ml-5 mr-5 mt-5">
+            <!-- <b-card title="Liplover No.01" img-src="/Product01.png" img-alt="Image" img-top tag="article" style="max-width: 20rem;" class=" font1 ml-5 mr-5 mt-5"> -->
+            <b-card :title="product.productName" :img-src="`${product.image}`" img-alt="Image" img-top tag="article" style="max-width: 20rem;" class=" font1 ml-5 mr-5 mt-5">
                 <b-card-text>
-                    Lip Lover ลิปแมทจิ๋ว ของแท้แบรนด์ไทย 10 สีสุดปัง ติดทนนานกันน้ำกันเหงื่อแท่งเล็กพกพาสะดวก
+                    {{product.price}}
+                    <!-- Lip Lover ลิปแมทจิ๋ว ของแท้แบรนด์ไทย 10 สีสุดปัง ติดทนนานกันน้ำกันเหงื่อแท่งเล็กพกพาสะดวก -->
                 </b-card-text>
                 <div align="end">
-                    <b-button block type="submit" variant="outline-primary" @click="$bvModal.show('modal-detail')">เลือกสินค้า</b-button>
+                    <b-button block type="submit" variant="outline-primary" @click="$bvModal.show('modal-detail')">รายละเอียดสินค้า</b-button>
                     <!-- <b-button block type="submit" variant="outline-primary">เพิ่มใส่ตะกร้า</b-button> -->
                 </div>
             </b-card>
 
             <div>
-                <b-modal id="modal-detail" centered title="Liplover No.01">
+                <b-modal id="modal-detail" centered :title="product.productName">
                     <div>
                         <b-row no-gutters>
                             <b-col md="4">
-                                <b-card-img src="/Product14.png" alt="Image" style="max-width:15rem;" class="rounded-0"></b-card-img>
+                                <b-card-img :src="product.image" alt="Image" style="max-width:15rem;" class="rounded-0"></b-card-img>
                             </b-col>
                             <b-col md="8">
                                 <b-card-text>
-                                    ครีมกันแดดน้ำผึ้งทองคำ กันแดดผสมรองพื้น เนื้อใยไหม บางเบา ไม่หนักหน้า ไม่อุดตัน ปกป้องรังสี UVA-UVB ยาวนาน 12 ชั่วโมงผลิตภัณฑ์คุณภาพดี ได้มาตรฐาน รับประกันความปลอดภัย มี อย. รับรอง
+                                    {{product.productDetail}}
                                 </b-card-text>
                                 <v-divider></v-divider>
                                 <b-card-text class="font">
-                                    <b> 220฿ </b>
+                                    <b> {{product.price}}฿ </b>
                                 </b-card-text>
                             </b-col>
                         </b-row>
@@ -68,8 +70,8 @@
                     <a @click="getcomment(post.id)">
                         <div>
                             
-                            <nuxt-link :to="{ name: 'post-id', params: { id: post.secretid } }"></nuxt-link>
                             <v-img height="350" :src="`${post.image}`"></v-img>
+                            <nuxt-link :to="{ name: 'post-id', params: { id: post.secretid } }"></nuxt-link>
                             <v-card-text>
                                 <div class="card-text font1"> {{ post.name }}</div>
                             </v-card-text>
@@ -171,55 +173,63 @@
 </template>
 
 <script>
-import { Core } from "@/vuexes/core";
+
 export default {
-    data: () => {
-        return {
-            dialog: false,
-            producttocart: {
-                sid: {},
-                pid: {},
-                qty: 1,
-            },
-            productdata: {
-                sid: null,
-                name: "ProductName",
-                price: null,
-            },
-            commentlist: []
-        }
+
+    // name:'product',
+    props:{
+        product:{}
     },
-    props: {
-        post: Object,
-    },
-    async created() {
-        // console.log(this.post.id)
-    },
+    // data: () => {
+    //     return {
+    //         dialog: false,
+    //         producttocart: {
+    //             sid: {},
+    //             pid: {},
+    //             qty: 1,
+    //         },
+    //         productdata: {
+    //             sid: null,
+    //             name: "ProductName",
+    //             price: null,
+    //         },
+    //         commentlist: []
+    //     }
+    // },
+    // props: {
+    //     post: Object,
+    // },
+    // async created() {
+    //     // console.log(this.post.id)
+    // },
     methods: {
-        async addcart() {
-            this.producttocart.sid = this.post.id
-            this.producttocart.pid = this.post.pid
-            let cartstatus = await Core.post(`/cart/add`, this.producttocart);
-            // console.log(cartstatus);
-            let toast = this.$toasted.show("ท่านได้เพิ่มสินค้าลงตะกร้า", {
-                type: "success",
-                theme: "toasted-primary",
-                position: "top-right",
-                duration: 5000
-            });
+        // async addcart() {
+        //     this.producttocart.sid = this.post.id
+        //     this.producttocart.pid = this.post.pid
+        //     let cartstatus = await Core.post(`/cart/add`, this.producttocart);
+        //     // console.log(cartstatus);
+        //     let toast = this.$toasted.show("ท่านได้เพิ่มสินค้าลงตะกร้า", {
+        //         type: "success",
+        //         theme: "toasted-primary",
+        //         position: "top-right",
+        //         duration: 5000
+        //     });
+        // },
+        async console(props) {
+            console.log(props)
+            // this.dialog = true
         },
-        async console(x) {
-            console.log(x)
-            this.dialog = true
-        },
-        async getcomment(x) {
-            console.log(x)
-            let commentraw = await Core.get(`/comment/product/` + x)
-            // http://localhost:8080/comment/product/48
-            // console.log(commentraw)
-            this.commentlist = commentraw.comment
-            this.dialog = true
-        }
+        // async getcomment(x) {
+        //     console.log(x)
+        //     let commentraw = await Core.get(`/comment/product/` + x)
+        //     // http://localhost:8080/comment/product/48
+        //     // console.log(commentraw)
+        //     this.commentlist = commentraw.comment
+        //     this.dialog = true
+        // }
+    },
+    created(){
+        this.console()
     }
 };
 </script>
