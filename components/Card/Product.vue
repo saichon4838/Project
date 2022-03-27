@@ -14,7 +14,7 @@
             </b-card>
 
             <div>
-                <b-modal  id="modal-detail" centered title="Liplover No.01">
+                <b-modal id="modal-detail" centered title="Liplover No.01">
                     <div>
                         <b-row no-gutters>
                             <b-col md="4">
@@ -60,7 +60,112 @@
                     </template>
                 </b-modal>
             </div>
-            </b-card>
+        </b-card>
+
+        <!-- <template>
+            <div>
+                <v-card class="my-12 ml-5 mr-5" max-width="300" min-width="300" max-height="580" min-height="580">
+                    <a @click="getcomment(post.id)">
+                        <div>
+                            
+                            <nuxt-link :to="{ name: 'post-id', params: { id: post.secretid } }"></nuxt-link>
+                            <v-img height="350" :src="`${post.image}`"></v-img>
+                            <v-card-text>
+                                <div class="card-text font1"> {{ post.name }}</div>
+                            </v-card-text>
+                        </div>
+                        <v-card-text>
+                           
+                            <b>
+                                <div class="card-text font1"> ฿ {{ post.price }}</div>
+                            </b>
+                        </v-card-text>
+                    </a>
+
+                    <div class="d-flex justify-end ">
+                        <form @submit.prevent="addcart()">
+                            <div v-if="post.onstock == true">
+                                <v-btn class="ma-3" fab color="pink lighten-1" elevation="2" type="submit">
+                                    <v-icon dense style="color:white ">mdi-cart</v-icon>
+                                </v-btn>
+                            </div>
+                            <div v-else>
+                                สินค้าหมด
+                            </div>
+                        </form>
+                    </div>
+                </v-card>
+
+                <v-dialog v-model="dialog" :overlay="false" max-width="600px" transition="dialog-transition">
+                    <v-card>
+                        <v-card-title primary-title>
+                            {{post.name}}
+                        </v-card-title>
+                        <v-divider></v-divider>
+                        <v-card-text>
+                            <div class="d-flex justify-end">
+                                <v-row>
+                                    <v-img max-height="300" max-width="300" contain :src="`${post.image}`"></v-img>
+                                </v-row>
+                 
+                                <v-divider></v-divider>
+                                <div>
+                                    <div v-if="post.pdetail === null">
+                                      
+                                        ไม่มีรายละเอียดสินค้า
+                                    </div>
+                                    <div v-else>
+                                     
+                                        <p style="text-indent: 2.5em;"> {{post.pdetail}} </p>
+                                    </div>
+                                    <v-divider></v-divider>
+                                    <b>
+                                        <div class="font"> ฿ {{ post.price }} </div>
+                                    </b>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-end ">
+                                <form @submit.prevent="addcart()">
+                                    <div v-if="post.onstock == true">
+                                        <v-btn class="ma-3" color="pink lighten-1" elevation="" type="submit">
+                                     
+                                            <span class="white--text font1">หยิบใส่ตะกร้า</span>
+                                        </v-btn>
+                                    </div>
+                                    <div v-else>
+                                        สินค้าหมด
+                                    </div>
+                                </form>
+                            </div>
+                        </v-card-text>
+                        <v-divider></v-divider>
+                        <v-card-text>
+                            <v-card-title primary-title>
+                                <b> <span class="font"> รีวิวจากลูกค้า </span></b>
+                            </v-card-title>
+                            <v-card-text>
+                                <v-simple-table>
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อลูกค้า</th>
+                                            <th>รีวิวจากลูกค้า</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="index, i in commentlist" :key="i">
+                                            <td>{{index.username}}</td>
+                                            <td>{{index.comment}}</td>
+                                        </tr>
+                                    </tbody>
+                                </v-simple-table>
+                            </v-card-text>
+                        </v-card-text>
+                    </v-card>
+                </v-dialog>
+
+            </div>
+        </template> -->
+
     </div>
 </div>
 </template>
@@ -68,7 +173,7 @@
 <script>
 import { Core } from "@/vuexes/core";
 export default {
- data: () => {
+    data: () => {
         return {
             dialog: false,
             producttocart: {
@@ -117,7 +222,6 @@ export default {
         }
     }
 };
-
 </script>
 
 <style>
