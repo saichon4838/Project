@@ -66,9 +66,58 @@
 </template>
 
 <script>
+import { Core } from "@/vuexes/core";
 export default {
+ data: () => {
+        return {
+            dialog: false,
+            producttocart: {
+                sid: {},
+                pid: {},
+                qty: 1,
+            },
+            productdata: {
+                sid: null,
+                name: "ProductName",
+                price: null,
+            },
+            commentlist: []
+        }
+    },
+    props: {
+        post: Object,
+    },
+    async created() {
+        // console.log(this.post.id)
+    },
+    methods: {
+        async addcart() {
+            this.producttocart.sid = this.post.id
+            this.producttocart.pid = this.post.pid
+            let cartstatus = await Core.post(`/cart/add`, this.producttocart);
+            // console.log(cartstatus);
+            let toast = this.$toasted.show("ท่านได้เพิ่มสินค้าลงตะกร้า", {
+                type: "success",
+                theme: "toasted-primary",
+                position: "top-right",
+                duration: 5000
+            });
+        },
+        async console(x) {
+            console.log(x)
+            this.dialog = true
+        },
+        async getcomment(x) {
+            console.log(x)
+            let commentraw = await Core.get(`/comment/product/` + x)
+            // http://localhost:8080/comment/product/48
+            // console.log(commentraw)
+            this.commentlist = commentraw.comment
+            this.dialog = true
+        }
+    }
+};
 
-}
 </script>
 
 <style>

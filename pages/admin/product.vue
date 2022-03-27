@@ -3,55 +3,55 @@
     <b-card>
         <b-card-text class="mt-4">
             <b class="font2 ml-4" style="color:#F06292">
-                สินค้า
+                เพิ่มสินค้าใหม่
             </b>
-            <div align="right">
-                <b-button style="color:#fff " variant="info" v-b-modal.modal-center-category>เพิ่มสินค้าใหม่</b-button>
-                <b-modal id="modal-center-category" centered title="รายละเอียดสินค้า">
-                    <b-form @submit="onSubmit">
+            <div align="center" class="mt-2">
+                <b-card>
+                    <b-card-text class="font2 mt-2">รายละเอียดสินค้า</b-card-text>
+                    <b-form class="mt-3" @submit="onSubmit">
                         <b-row class="my-1" style="color:#000">
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <label for="input-small">ชื่อสินค้า</label>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <b-form-input v-model="form.productName" id="input-small" size="sm" placeholder="กรุณาระบุชื่อสินค้า"></b-form-input>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <label for="input-small">รหัสสินค้า</label>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <b-form-input v-model="form.productId" id="input-small" size="sm" placeholder="กรุณาระบุรหัสสินค้า"></b-form-input>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <label for="input-small">รายละเอียดสินค้า</label>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <b-form-textarea v-model="form.productDetail" id="textarea-rows" placeholder="Insert text here..." rows="8"></b-form-textarea>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <div class="mt-3">ภาพสินค้า {{ image ? image.name : '' }}</div>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <b-form-file ref="file" v-model="image" class="mt-3" plain></b-form-file>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <label for="input-small">ราคาสินค้าสินค้า</label>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <b-input-group size="sm" prepend="฿" append=".00">
                                     <b-form-input v-model="form.price" />
                                 </b-input-group>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <label for="input-small">มีสินค้า</label>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <b-form-input id="input-small" v-model="form.stock" size="sm" placeholder="กรุณาระบุใส่จำนวนสินค้า"></b-form-input>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <label for="input-small">หมวดหมู่สินค้า</label>
                             </b-col>
-                            <b-col sm="6">
+                            <b-col sm="5">
                                 <b-select style="color:#808080" v-model="form.type" variant="light" id="dropdown-1" text="กรุณาเลือก">
                                     <b-select-option value="สกินแคร์">สกินแคร์</b-select-option>
                                     <b-select-option value="เครื่องสำอางค์">เครื่องสำอางค์</b-select-option>
@@ -65,16 +65,7 @@
                                 บันทึก
                         </b-button>
                     </b-form>
-                    <template #modal-footer="{cancel,ok}">
-
-                        <b-button size="sm" style="color:black" variant="outline-secondary" @click="cancel()">
-                            ยกเลิก
-                        </b-button>
-                        <b-button size="sm" style="color:#fff" variant="primary" @click="ok()">
-                            บันทึก
-                        </b-button>
-                    </template>
-                </b-modal>
+                </b-card>
             </div>
         </b-card-text>
     </b-card>

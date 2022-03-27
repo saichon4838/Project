@@ -3,44 +3,40 @@
     <b-card>
         <b-card-text class="mt-4">
             <b class="font2 ml-4" style="color:#F06292">
-                หมวดหมู่สินค้า
+                เพิ่มหมวดหมู่สินค้า
             </b>
-            <div align="right">
-                <b-button style="color:#fff " variant="info" v-b-modal.modal-center-category>เพิ่มหมวดหมู่สินค้า</b-button>
-                <b-modal id="modal-center-category" centered title="เพิ่มหมวดหมู่สินค้า">
+            <div align="center" class="mt-2">
+                <b-card>
+                    <b-card-text class="font2 mt-2">รายละเอียดหมวดหมู่สินค้า</b-card-text>
                     <b-form  @submit="onSubmit" @reset="onReset">
                         <b-row class="my-1">
-                            <b-col sm="6">
-                                <label for="input-small">ชื่อหมวดหมู่สินค้า :</label>
+                            <b-col sm="5">
+                                <label for="input-small">ชื่อหมวดหมู่สินค้า</label>
                             </b-col>
-                            <b-col sm="6">
-                                <b-form-input id="input-small-1" v-model="form.categoryTh" size="sm" placeholder="Enter your name"></b-form-input>
+                            <b-col sm="5">
+                                <b-form-input id="input-small-1" v-model="form.categoryTh" size="sm" placeholder="กรุณาระบุชื่อหมวดหมู่สินค้า"></b-form-input>
                             </b-col>
-                            <b-col sm="6">
-                                <label for="input-small">ชื่อหมวดหมู่สินค้า(อังกฤษ) :</label>
+                            <b-col sm="5">
+                                <label for="input-small">ชื่อหมวดหมู่สินค้า (อังกฤษ)</label>
                             </b-col>
-                            <b-col sm="6">
-                                <b-form-input id="input-small-2" v-model="form.categoryEn" size="sm" placeholder="Enter your name"></b-form-input>
+                            <b-col sm="5">
+                                <b-form-input id="input-small-2" v-model="form.categoryEn" size="sm" placeholder="กรุณาระบุชื่อหมวดหมู่สินค้า (อังกฤษ)"></b-form-input>
                             </b-col>
-                            <b-select v-model="form.status" style="color:#000 " variant="light" id="dropdown-1" text="สถานะหมวดหมู่" class="m-md-2">
+                            <b-col sm="5">
+                                <label for="input-small">สถานะหมวดหมู่</label>
+                            </b-col>
+                            <b-col sm="5">
+                            <b-select v-model="form.status" style="color:#000 " variant="light" id="dropdown-1" text="สถานะหมวดหมู่" >
                                 <b-select-option value="แสดง">แสดง</b-select-option>
                                 <b-select-option value="ไม่แสดง">ไม่แสดง</b-select-option>
                             </b-select>
+                              </b-col> 
                         </b-row>
-                        <template #modal-footer="{cancel,ok}">
-                            <!-- Emulate built in modal footer ok and cancel button actions -->
-                            <b-button size="sm" style="color:#fff" variant="danger" @click="cancel()">
-                                ยกเลิก
-                            </b-button>
-                            <b-button size="sm" style="color:#fff" variant="primary" type="submit" @click="ok()">
-                                บันทึก
-                            </b-button>
-                        </template>
                         <b-button size="sm" style="color:#fff" variant="primary" type="submit">
                                 บันทึก
                         </b-button>
                     </b-form>
-                </b-modal>
+                 </b-card>
             </div>
             <b-card class="mt-3">
                
