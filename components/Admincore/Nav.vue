@@ -9,6 +9,7 @@
             <div align="center">
                 <b-navbar-nav>
                     <!-- <b-nav-item href="/admin/dashboard">แดชบอร์ด</b-nav-item> -->
+                    <b-nav-item href="/admin/dashboard">หน้าแรก</b-nav-item>
                     <b-nav-item href="/admin/receipt">รายการสั่งซื้อ</b-nav-item>
                     <b-nav-item href="/admin/category">หมวดหมู่สินค้า</b-nav-item>
                     <b-nav-item href="/admin/product">สินค้า</b-nav-item>
@@ -19,7 +20,7 @@
             <b-navbar-nav class="ml-auto" style="color:white">
                 <!-- <b-button variant="outline-light">เข้าสู่ระบบ</b-button> -->
                 <b-nav-item right>
-                    <template >
+                    <template>
                         <span>ชื่อแอดมิน</span>
                     </template>
                 </b-nav-item>

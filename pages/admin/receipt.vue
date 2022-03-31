@@ -6,7 +6,6 @@
                 รายการสั่งซื้อ
             </b>
         </b-card-text>
-
         <div class="px-5 py-5 ">
             <b-table-simple xl>
                 <template>
