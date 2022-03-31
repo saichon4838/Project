@@ -69,9 +69,7 @@
                         <b-button class="mt-2" size="sm" style="color:#fff" variant="primary" type="submit">
                             บันทึก
                         </b-button>
-                        <b-button class="mt-2" size="sm" style="color:#fff" variant="danger" type="cancel">
-                            ยกเลิก
-                        </b-button>
+                        
                     </b-form>
                 </b-card>
             </div>
