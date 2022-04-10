@@ -59,7 +59,7 @@
                 <template>
                     <b-thead>
                         <b-tr>
-                            <!-- <b-th class="black--text" style="text-align:center">รูปสินค้า</b-th> -->
+                            <b-th class="black--text" style="text-align:center">ลำดับ</b-th>
                             <b-th class="black--text" style="text-align:center">ชื่อหมวดหมู่สินค้า</b-th>
                             <b-th class="black--text" style="text-align:center">ชื่อหมวดหมู่สินค้า (อังกฤษ)</b-th>
                             <b-th class="black--text" style="text-align:center">สถานะหมวดหมู่สินค้า</b-th>
@@ -68,9 +68,9 @@
                     </b-thead>
                     <b-tbody align="center">
                         <template>
-                            <!-- <b-td>
-                                <b-img src="/Product01.png" width="48" height="48" alt="placeholder"></b-img>
-                            </b-td> -->
+                            <b-td>
+                                1
+                            </b-td>
                             <b-td>
                                 <b-card-text>
                                     สกินแคร์

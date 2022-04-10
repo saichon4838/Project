@@ -90,6 +90,7 @@
                     <b-thead>
                         <b-tr>
                             <!-- <b-th class="black--text" style="text-align:center">รูปสินค้า</b-th> -->
+                            <b-th class="black--text" style="text-align:center">ลำดับ</b-th>
                             <b-th class="black--text" style="text-align:center">ชื่อสินค้า</b-th>
                             <b-th class="black--text" style="text-align:center">หมวดหมู่สินค้า</b-th>
                             <b-th class="black--text" style="text-align:center">ราคา</b-th>
@@ -102,6 +103,11 @@
                             <!-- <b-td>
                                 <b-img src="/Product01.png" width="48" height="48" alt="placeholder"></b-img>
                             </b-td> -->
+                            <b-td>
+                                <b-card-text>
+                                    1
+                                </b-card-text>
+                            </b-td>
                             <b-td>
                                 <b-card-text>
                                     <b-img src="/Product01.png" width="38" height="38" alt="placeholder"></b-img>
