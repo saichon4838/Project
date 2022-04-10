@@ -100,9 +100,6 @@
                     </b-thead>
                     <b-tbody align="center">
                         <template>
-                            <!-- <b-td>
-                                <b-img src="/Product01.png" width="48" height="48" alt="placeholder"></b-img>
-                            </b-td> -->
                             <b-td>
                                 <b-card-text>
                                     1

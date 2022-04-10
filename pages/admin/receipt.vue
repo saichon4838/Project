@@ -15,7 +15,6 @@
                             <b-th class="black--text" style="text-align:center">หมายเลขออเดอร์</b-th>
                             <b-th class="black--text" style="text-align:center">ชื่อลูกค้า</b-th>
                             <b-th class="black--text" style="text-align:center">รวมทั้งหมด</b-th>
-                            <!-- <b-th class="black--text" style="text-align:center">สถานะ</b-th> -->
                             <b-th class="black--text" style="text-align:center">การชำระเงิน</b-th>
                             <b-th class="black--text" style="text-align:center">การจัดส่ง</b-th>
                             <b-th class="black--text" style="text-align:center">คำสั่งซื้อ</b-th>
