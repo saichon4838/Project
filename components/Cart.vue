@@ -14,7 +14,7 @@
                 <template>
                     <b-thead>
                         <b-tr>
-                            <b-th></b-th>
+                           
                             <b-th class="black--text" style="text-align:center">สินค้า</b-th>
                             <b-th class="black--text" style="text-align:center">ราคาต่อหน่วย</b-th>
                             <b-th class="black--text" style="text-align:center">จำนวน</b-th>
@@ -26,10 +26,8 @@
                     <b-tbody align="center">
                         <template>
                             <b-td>
-                                <b-img src="/Product01.png" style="width:55px;"></b-img>
-                            </b-td>
-                            <b-td>
-                                <p>Lip Lover</p>
+                                <b-img src="/Product01.png" style="width:30px;"></b-img>
+                               Lip Lover
                             </b-td>
                             <b-td>
                                 <p>59฿</p>
@@ -45,8 +43,8 @@
                             <b-td>
                                 <p>118฿</p>
                             </b-td>
-                            <b-button size="lg" variant="info" class="mb-2 mt-2">
-                                <b-icon icon="trash-fill" variant="success"></b-icon>
+                            <b-button size="lg" variant="outline-primary" class="mb-2 mt-2">
+                                <b-icon-trash-fill></b-icon-trash-fill>
                             </b-button>
                         </template>
                     </b-tbody>
