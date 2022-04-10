@@ -34,7 +34,7 @@
                                 <b-form-textarea v-model="form.productDetail" id="textarea-rows" placeholder="Insert text here..." rows="8"></b-form-textarea>
                             </b-col>
                             <b-col sm="5">
-                                <div class="mt-3">ภาพสินค้า {{ image ? image.name : '' }}</div>
+                                <div class="mt-3">ภาพสินค้า</div>
                             </b-col>
                             <b-col sm="5">
                                 <b-form-file ref="file" v-model="image" class="mt-3" plain></b-form-file>
@@ -155,7 +155,8 @@
                                                         <b-form-textarea v-model="form.productDetail" id="textarea-rows" placeholder="Lip Lover ลิปแมทจิ๋ว ของแท้แบรนด์ไทย 10 สีสุดปัง ติดทนนานกันน้ำกันเหงื่อแท่งเล็กพกพาสะดวก" rows="8"></b-form-textarea>
                                                     </b-col>
                                                     <b-col sm="5">
-                                                        <div class="mt-3">ภาพสินค้า {{ image ? image.name : '' }}</div>
+                                                        <!-- <div class="mt-3">ภาพสินค้า {{ image ? image.name : '' }}</div> -->
+                                                        <div class="mt-3">ภาพสินค้า</div>
                                                     </b-col>
                                                     <b-col sm="5" align="left">
                                                       <b-img src="/Product01.png" width="100" height="100" alt="placeholder"></b-img>
